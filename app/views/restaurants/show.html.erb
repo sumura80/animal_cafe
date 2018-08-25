@@ -1,0 +1,116 @@
+<div class="row">
+	<div class="col-md-3">
+		<%= image_tag @restaurant.image_url %>
+		<br>
+		<div class="star-rating" data-score= <%= @avg_review %> ></div>
+        <em><%= "#{@reviews.length} reviews" %></em>
+		<h2>
+		  <%= @restaurant.name %>
+		</h2>
+
+		<p>
+		  <strong>Address:</strong>
+		  <%= @restaurant.address %>
+		</p>
+
+		<p>
+		  <strong>Phone:</strong>
+		  <%= @restaurant.phone %>
+		</p>
+
+		<p>
+		  <strong>Website:</strong>
+		  <%= link_to @restaurant.website, @restaurant.website %>
+		</p>
+
+			<%= link_to "Write a review" ,new_restaurant_review_path(@restaurant),class: "btn btn-primary" %><br><br>
+				<iframe
+				  width="280"
+				  height="280"
+				  frameborder="0" style="border:0"
+				  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBDL6bOHeM9-DuSKdX0i-HbTXodbvwCY28
+				    &q=<%= @restaurant.address.parameterize %> &zoom=14" allowfullscreen>
+				</iframe>
+<br>
+			<% if user_signed_in? %>
+				<% if  current_user.admin? %>
+					<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link" %> |
+				<% end %>
+			<% end %>
+			<%= link_to 'Back', restaurants_path, class: "btn btn-link" %>
+	</div>
+
+
+	<div class="col-md-9">
+	<% if @reviews.blank? %>
+		<h3>No Reviews yet. Be the first to write one</h3>
+	<% else %>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<td style="">
+						<div class="col-md-3"></div>
+						<div class="col-md-9"></div>
+					</td>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @reviews.each do |review| %>
+				<tr>
+					<td>
+						<h4><%= "#{review.user.username}" %></h4>
+						<p><%= review.created_at.strftime("%-m/%-d/%y") %></p>
+					</td>
+
+					<td>
+						<div class="star-rating" data-score=  <%= review.rating %> ></div>
+							<!-- <p><%= review.rating %></p> -->
+
+							<!-- 改行を反映させるためのコマンド↓ -->
+							<p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
+							<% if user_signed_in? %>
+								<% if review.user == current_user || current_user.admin? %>
+									<%= link_to "Edit", edit_restaurant_review_path(@restaurant,review) %>
+									<%= link_to "Delete", restaurant_review_path(@restaurant,review), method: :delete %>
+								<% end %>
+							<% end %>
+
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+
+		</table>
+	<% end %>
+	</div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+<!-- 
+下記のサイトから持ってきた
+https://stackoverflow.com/questions/35167149/im-using-raty-js-star-rating-system-how-do-i-show-the-equivalent-integer-value
+star-ratingの部分を変更した
+ -->
+
+
+<script>
+    $('.star-rating').raty({
+        readOnly: true,
+        path: '/assets/',
+        score: function() {
+            return $(this).attr('data-score');
+        }
+    });
+</script>
+
+

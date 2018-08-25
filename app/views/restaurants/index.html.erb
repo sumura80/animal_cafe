@@ -1,0 +1,39 @@
+<div class="jumbotron" style="background-color: #F9FCCF; border: 1px solid #9999ff;color:#b30059; font-weight: bold;">
+  <h2>This Animal Cafe collection is the best</h2>
+  <p>You can explore the site and find your favorite cafes.</p>
+</div>
+
+
+<table class="table table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Website</th>
+      <% if user_signed_in?  && current_user.admin? %>
+        <th colspan="2"></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= link_to restaurant.name, restaurant %></td>
+        <td><%= restaurant.address %></td>
+        <td><%= restaurant.phone %></td>
+        <td><%= restaurant.website %></td>
+        <% if user_signed_in?  && current_user.admin? %>
+          <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-link" %></td>
+          <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if user_signed_in?  && current_user.admin? %>
+  <%= link_to 'New Restaurant', new_restaurant_path %>
+<% end %>
