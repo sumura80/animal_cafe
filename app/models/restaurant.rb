@@ -5,5 +5,5 @@ class Restaurant < ApplicationRecord
 
 	 validates :name, :address, :phone, :website, :image, presence: true
 
-	 searchkick
+	 
 end

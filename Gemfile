@@ -35,7 +35,6 @@ gem 'mini_magick', '~> 4.8'
 gem 'devise'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-gem 'searchkick'
 gem 'fog', '~> 2.0'
 
 

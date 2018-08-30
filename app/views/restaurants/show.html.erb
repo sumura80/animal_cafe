@@ -67,11 +67,13 @@
 					<td>
 						<!-- raty.jsを使う場合は下記のコードになるはずだが、機能しない。
 							<div class="star-rating" data-score= <%= review.rating %> ></div> -->
-						<!-- <div class="star-rating" data-score=<%= review.rating %> ></div> -->
+							
+						<!--<div class="star-rating" data-score=<%= review.rating %> ></div> --> 
 						<!-- <div class="star-rating" data-score="<%= review.rating %>"></div> -->
 							<!-- <div id="test"></div> -->
 							<!-- <div id="star"></div>--> 
-							 <p><%= review.rating %></p> 
+							  <p><%= review.rating %></p> 
+							
 
 							<!-- 改行を反映させるためのコマンド↓ -->
 							<p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
