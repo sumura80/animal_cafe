@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-3">
+	<div class="col-md-4">
 		<%= image_tag @restaurant.image_url %>
 		<br>
 		<div class="star-rating" data-score= <%= @avg_review %> ></div>
@@ -41,7 +41,7 @@
 	</div>
 
 
-	<div class="col-md-9">
+	<div class="col-md-8">
 	<% if @reviews.blank? %>
 		<h3>No Reviews yet. Be the first to write one</h3>
 	<% else %>
@@ -65,8 +65,13 @@
 					</td>
 
 					<td>
-						<div class="star-rating" data-score=  <%= review.rating %> ></div>
-							<!-- <p><%= review.rating %></p> -->
+						<!-- raty.jsを使う場合は下記のコードになるはずだが、機能しない。
+							<div class="star-rating" data-score= <%= review.rating %> ></div> -->
+						<!-- <div class="star-rating" data-score=<%= review.rating %> ></div> -->
+						<!-- <div class="star-rating" data-score="<%= review.rating %>"></div> -->
+							<!-- <div id="test"></div> -->
+							<!-- <div id="star"></div>--> 
+							 <p><%= review.rating %></p> 
 
 							<!-- 改行を反映させるためのコマンド↓ -->
 							<p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
