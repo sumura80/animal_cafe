@@ -3,27 +3,28 @@
 		<%= image_tag @restaurant.image_url %>
 		<br>
 		<div class="star-rating" data-score= <%= @avg_review %> ></div>
-        <em><%= "#{@reviews.length} reviews" %></em>
+        <em><%= "#{@review.length} reviews" %></em>
 		<h2>
 		  <%= @restaurant.name %>
 		</h2>
+		
 
 		<p>
-		  <strong>Address:</strong>
+		  <strong>住所:</strong>
 		  <%= @restaurant.address %>
 		</p>
 
 		<p>
-		  <strong>Phone:</strong>
+		  <strong>電話番号:</strong>
 		  <%= @restaurant.phone %>
 		</p>
 
 		<p>
-		  <strong>Website:</strong>
+		  <strong>URL:</strong>
 		  <%= link_to @restaurant.website, @restaurant.website %>
 		</p>
-
-			<%= link_to "Write a review" ,new_restaurant_review_path(@restaurant),class: "btn btn-primary" %><br><br>
+		
+			<%= link_to "レビューを書く" ,new_restaurant_review_path(@restaurant),class: "btn btn-primary" %><br><br>
 				<iframe
 				  width="280"
 				  height="280"
@@ -34,16 +35,16 @@
 <br>
 			<% if user_signed_in? %>
 				<% if  current_user.admin? %>
-					<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link" %> |
+					<%= link_to 'カフェの編集', edit_restaurant_path(@restaurant), class: "btn btn-link" %> |
 				<% end %>
 			<% end %>
-			<%= link_to 'Back', restaurants_path, class: "btn btn-link" %>
+			<%= link_to '一覧に戻る', restaurants_path, class: "btn btn-link" %>
 	</div>
 
 
 	<div class="col-md-8">
-	<% if @reviews.blank? %>
-		<h3>No Reviews yet. Be the first to write one</h3>
+	<% if @review.blank? %>
+		<h3>まだレビューがありません。是非、書いてみませんか？</h3>
 	<% else %>
 		
 		<table class="table">
@@ -57,22 +58,22 @@
 			</thead>
 
 			<tbody>
-				<% @reviews.each do |review| %>
+				<% @review.each do |review| %>
 				<tr>
 					<td>
 						<h4><%= "#{review.user.username}" %></h4>
 						<p><%= review.created_at.strftime("%-m/%-d/%y") %></p>
 					</td>
-
+			 
 					<td>
 						<!-- raty.jsを使う場合は下記のコードになるはずだが、機能しない。
 							<div class="star-rating" data-score= <%= review.rating %> ></div> -->
-							
+							<div class="star-rating" data-score= <%= review.rating %> ></div>
 						<!--<div class="star-rating" data-score=<%= review.rating %> ></div> --> 
 						<!-- <div class="star-rating" data-score="<%= review.rating %>"></div> -->
 							<!-- <div id="test"></div> -->
 							<!-- <div id="star"></div>--> 
-							  <p><%= review.rating %></p> 
+							 <!-- <p><%= review.rating %></p> --> 
 							
 
 							<!-- 改行を反映させるためのコマンド↓ -->

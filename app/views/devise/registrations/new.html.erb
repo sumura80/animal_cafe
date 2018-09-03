@@ -1,10 +1,10 @@
-<h2>Sign up</h2>
+<h2>新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :username %>
+    <%= f.label :ユーザーネーム %>
     <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control"  %>
   </div>
 
@@ -14,7 +14,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :password %>
+    <%= f.label :パスワード %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -22,12 +22,12 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :パスワード確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control"  %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up", class: "btn btn-primary" %>
+    <%= f.submit "新規登録", class: "btn btn-primary" %>
   </div>
 <% end %>
 

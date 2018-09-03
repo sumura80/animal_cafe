@@ -33,10 +33,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'mini_magick', '~> 4.8'
 gem 'devise'
-gem 'jquery-rails'
+#gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'fog', '~> 2.0'
-
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 
 # Use Capistrano for deployment

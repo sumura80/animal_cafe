@@ -1,16 +1,16 @@
 <div class="jumbotron" style="background-color: #F9FCCF; border: 1px solid #9999ff;color:#b30059; font-weight: bold;">
-  <h2>This Animal Cafe collection is the best</h2>
-  <p>You can explore the site and find your favorite cafes.</p>
+  <h2>Catch Cafeで今人気の動物カフェを探しませんか？</h2>
+  <p>あなたのお気に入りのカフェが見つかるはず！</p>
 </div>
 
 
 <table class="table table-hover table-condensed">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th>Website</th>
+      <th>カフェの名前</th>
+      <th>住所</th>
+      <th>電話番号</th>
+      <th></th>
       <% if user_signed_in?  && current_user.admin? %>
         <th colspan="2"></th>
       <% end %>
@@ -25,8 +25,8 @@
         <td><%= restaurant.phone %></td>
         <td><%= restaurant.website %></td>
         <% if user_signed_in?  && current_user.admin? %>
-          <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-link" %></td>
-          <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
+          <td><%= link_to '編集', edit_restaurant_path(restaurant), class: "btn btn-link" %></td>
+          <td><%= link_to '削除', restaurant, method: :delete, data: { confirm: '削除してもよろしいですか?' }, class: "btn btn-link" %></td>
         <% end %>
       </tr>
     <% end %>
@@ -34,6 +34,6 @@
 </table>
 
 <br>
-<% if user_signed_in?  && current_user.admin? %>
-  <%= link_to 'New Restaurant', new_restaurant_path %>
+<% if user_signed_in?%> <!--  && current_user.admin? ログインユーザとアドミン-->
+  <%= link_to '新しいカフェの登録', new_restaurant_path,class:"btn btn-success" %>
 <% end %>

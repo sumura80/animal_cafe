@@ -12,31 +12,31 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :name %>
+    <%= form.label :名前 %>
     <%= form.text_field :name, id: :restaurant_name, class: "form-control"  %>
   </div>
 
   <div class="form-group">
-    <%= form.label :address %>
+    <%= form.label :住所 %>
     <%= form.text_field :address, id: :restaurant_address, class: "form-control"  %>
   </div>
 
   <div class="form-group">
-    <%= form.label :phone %>
+    <%= form.label :電話番号 %>
     <%= form.text_field :phone, id: :restaurant_phone , class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :website %>
+    <%= form.label :ウェブサイト %>
     <%= form.text_field :website, id: :restaurant_website , class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :image %>
+    <%= form.label :画像添付 %>
     <%= form.file_field :image, id: :restaurant_image , class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit class: "btn btn-primary" %>
+    <%= form.submit "新規カフェ登録",class: "btn btn-primary" %>
   </div>
 <% end %>

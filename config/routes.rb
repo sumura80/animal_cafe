@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   
   get 'pages/about'
+  get 'pages/top3'
 
   root 'restaurants#index'
 
