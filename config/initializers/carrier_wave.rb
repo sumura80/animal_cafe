@@ -10,3 +10,4 @@ if Rails.env.production?
     config.fog_directory     =  ENV['AMAZON_S3_BUCKET_NAME']
   end
 end
+
