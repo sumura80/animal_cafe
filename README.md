@@ -1,24 +1,22 @@
 # README
+## Name: Catch Cafe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ 
+## Overview: 人気の動物カフェを探せるサイト
+自分のコメントを投稿できるだけでなく、評価を星で登録もできる。
+動物カフェの住所によりGoogleマップが表示される。
+管理者によってのみカフェを登録することができる。
 
-Things you may want to cover:
 
-* Ruby version
+## Function:
+使用したGems:
+```
+1. devise
+2. bootstrap-sass
+3. carrierwave(mini_magick)
+4. jquery-rails
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Description
+Rails: 5.1.6
+Database: PostgreSQL
